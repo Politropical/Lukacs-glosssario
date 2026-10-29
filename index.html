@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Marx–Lukács · Glossário e Mapa</title>
+<style>
+:root{--bg:#fff;--surface:#fff;--alt:#f5f5f5;--border:#e0e0e0;--text:#111;--muted:#555;--accent:#c62828;--lbg:#fafafa;--tag:#eee;--tagt:#333}
+html.dark{--bg:#0d0d0d;--surface:#161616;--alt:#1e1e1e;--border:#2a2a2a;--text:#f0f0f0;--muted:#9a9a9a;--accent:#ff5252;--lbg:#1a1a1a;--tag:#2a2a2a;--tagt:#ccc}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;transition:background-color .25s,border-color .25s,color .2s}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);min-height:100dvh;-webkit-font-smoothing:antialiased}
+.container{width:100%;max-width:1000px;margin:0 auto;padding:1.5rem 1.25rem}
+@media(min-width:768px){.container{padding:2.5rem;border:solid var(--border);border-width:0 1px;background:var(--surface)}}
+header{text-align:center;margin-bottom:1.5rem;border-bottom:2px solid var(--border);padding-bottom:1.2rem}
+h1{font-size:2rem;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+h1 .accent{color:var(--accent)}
+.subtitle{color:var(--muted);margin-top:.5rem;font-style:italic;line-height:1.4}
+.theme-toggle{position:fixed;top:max(1rem,env(safe-area-inset-top));right:1rem;z-index:100;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:50px;padding:.6rem 1rem;font-size:.9rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.4rem;box-shadow:0 4px 12px rgba(0,0,0,.1);font-family:inherit}
+.theme-toggle:active{transform:scale(.95);border-color:var(--accent);color:var(--accent)}
+.intro{background:var(--alt);border-left:4px solid var(--accent);padding:1.1rem;margin-bottom:1.5rem;border-radius:0 10px 10px 0;font-size:.95rem}
+.intro p{margin-bottom:.7rem}.intro p:last-child{margin:0}.intro strong{color:var(--accent)}
+.grid{display:flex;flex-direction:column;gap:.8rem}
+.group{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:.8rem 0 -.2rem}
+.card{background:var(--alt);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.card[open]{border-color:var(--accent);background:var(--surface)}
+.card summary{list-style:none;cursor:pointer;padding:1.1rem 1.2rem;display:flex;align-items:center;gap:.6rem;font-weight:600;font-size:1.15rem;user-select:none;-webkit-user-select:none;min-height:56px}
+.card summary::-webkit-details-marker{display:none}
+.card summary:active{background:var(--alt)}
+.card summary::after{content:"+";margin-left:auto;font-size:1.6rem;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:1.5rem;text-align:center}
+.card[open] summary::after{content:"−"}
+.name{font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.tag{font-size:.65rem;background:var(--tag);color:var(--tagt);padding:.2rem .55rem;border-radius:20px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
+.tag.hegel{background:var(--accent);color:#fff}
+.content{padding:0 1.2rem 1.2rem;border-top:1px solid var(--border)}
+.label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:1.2rem 0 .4rem;display:block}
+.label.marx{color:var(--muted)}.label.lukacs{color:var(--accent)}
+.def{font-size:.95rem}
+.block{background:var(--lbg);border-radius:10px;padding:1rem;margin-top:.6rem;border:1px solid var(--border);border-left:4px solid var(--accent)}
+.block p{margin-bottom:.8rem;font-size:.95rem}.block p:last-child{margin:0}
+.kw{font-weight:700;color:var(--accent)}
+.footnote{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border);font-size:.85rem;color:var(--muted);text-align:center;line-height:1.5}
+.footnote p{margin-bottom:.4rem}
+
+[hidden]{display:none!important}
+body{padding-bottom:calc(3.8rem + env(safe-area-inset-bottom,0px))}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:100;display:flex;background:var(--surface);border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs button{flex:1;padding:.95rem .5rem;background:none;border:0;font-family:inherit;font-size:.95rem;font-weight:600;color:var(--muted);cursor:pointer}
+.tabs button.on{color:var(--accent);box-shadow:inset 0 3px 0 var(--accent)}
+.wrap{max-width:680px;margin:0 auto}
+#chart svg{width:100%;height:auto;display:block;max-width:640px;margin:0 auto}
+#chart path{stroke:var(--bg);stroke-width:1}
+#chart text{fill:var(--text);font-size:17px;font-weight:600;user-select:none;-webkit-user-select:none}
+#chart .center{font-size:19px;font-weight:700}
+#chart .back{fill:var(--accent);font-size:15px;font-weight:600}
+.panel{background:var(--alt);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:1rem;margin-top:.8rem}
+.crumb{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:.3rem}
+.panel h2{font-size:1.15rem;margin-bottom:.4rem}
+.panel p{font-size:.95rem}
+.kids{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem}
+.kids button{font-family:inherit;font-size:.8rem;font-weight:600;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:50px;padding:.4rem .8rem;cursor:pointer}
+.kids button:active{border-color:var(--accent);color:var(--accent)}
+.note{color:var(--muted);font-size:.78rem;text-align:center;margin-top:1.2rem;line-height:1.4}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="tt" aria-label="Alternar modo escuro"><span id="ti">🌙</span><span id="tl">Escuro</span></button>
+<div id="view-glossary">
+<div class="container">
+<header>
+<h1>Marx <span class="accent">→</span> Lukács</h1>
+<div class="subtitle">Glossário de termos e do que Lukács “ontologiza”</div>
+</header>
+
+<div class="intro">
+<p><strong>Como usar este glossário.</strong> Cada verbete apresenta um conceito como aparece em Marx e mostra como Lukács o retrabalha em sua <em>Ontologia do Ser Social</em>, isto é, o que ele <em>ontologiza</em>.</p>
+<p><strong>Ideia-chave:</strong> para Lukács, “ontologizar” é perguntar: <em>que tipo de ser este conceito pressupõe? Qual é seu modo de realidade, seu fundamento genético, seu caráter processual?</em> Não se trata de metafísica tradicional, mas de uma ontologia histórica e materialista.</p>
+</div>
+
+<div class="grid">
+
+<div class="group">Livro 1 · Ponto de partida</div>
+
+<details class="card" open>
+<summary><span class="name">Hegel e a ontologia não sistematizada</span><span class="tag hegel">Hegel</span></summary>
+<div class="content">
+<div class="label marx">O problema</div>
+<div class="def">Por que Marx, que analisou o trabalho, a alienação e a reprodução, nunca escreveu uma ontologia sistemática do ser social? Para Lukács, a resposta está na sombra do sistema hegeliano.</div>
+<div class="label lukacs">A “ontologia logicizante” de Hegel</div>
+<div class="block">
+<p><span class="kw">A lógica vira ontologia.</span> Hegel transforma a lógica em ontologia: as categorias do pensamento passam a ser as próprias categorias do ser. A Lógica não é só método de conhecimento, mas a estrutura racional do real.</p>
+<p><span class="kw">Ontologia logicizante.</span> Hegel não nega o ser, mas o submete à primazia da lógica. As categorias são, ao mesmo tempo, determinações do pensamento e componentes dinâmicos da realidade.</p>
+<p><span class="kw">Dissolução do concreto.</span> Ao “logicizar” natureza e história, a realidade concreta, com suas contradições materiais e seu desenvolvimento processual, é dissolvida num esquema lógico-abstrato: passa a ser manifestação do Espírito (Ideia Absoluta) autoconhecendo-se. O ser deixa de ser concreto e histórico para se tornar momento do movimento do conceito.</p>
+<p><span class="kw">Sem especificidade das esferas.</span> A dialética hegeliana permeia tudo e impõe a mesma estrutura (tese-antítese-síntese) à natureza e à história, como etapas do mesmo movimento do Espírito. Não sobra espaço para a legalidade própria e o “salto” qualitativo de cada esfera: inorgânica, orgânica, social.</p>
+</div>
+<div class="label marx">Por que Marx não sistematizou?</div>
+<div class="def">Marx herdou a dialética de Hegel e a pôs “de cabeça para baixo” (materialismo). Mas fez uma <em>crítica da economia política</em>, não uma exposição das categorias do ser social. Segundo Lukács, a influência do sistema hegeliano era tão avassaladora que a dimensão ontológica (“o que é o ser social em sua concretude?”) ficou encoberta pela ênfase na lógica dialética e na crítica epistemológica.<br><br>Marx “viu” a ontologia ao analisar trabalho, alienação e reprodução, mas não a sistematizou como tal: seguiu preso ao horizonte de provar a racionalidade do real pela crítica da economia, sem se livrar totalmente da moldura lógico-categorial hegeliana. Por isso a ontologia ficou <em>implícita</em> ou <em>obscurecida</em>.</div>
+<div class="label lukacs">O que Lukács pretende</div>
+<div class="block">
+<p><span class="kw">Desenterrar a ontologia implícita.</span> A tarefa da <em>Ontologia</em> é resgatar a ontologia do ser social presente em Marx, separando o que é “vivo” (a análise do ser social concreto) do que é “morto” (a camisa de força logicizante hegeliana).</p>
+<p><span class="kw">O ser social como forma específica.</span> Contra a “falsa ontologia” de Hegel, o ser social é uma forma específica de ser, com estrutura e gênese próprias, e sua gênese é o <em>trabalho</em>.</p>
+</div>
+</div>
+</details>
+
+<div class="group">Categorias</div>
+
+<details class="card">
+<summary><span class="name">Trabalho</span><span class="tag">Marx</span></summary>
+<div class="content">
+<div class="label marx">Em Marx</div>
+<div class="def">A relação metabólica fundamental entre o ser humano e a natureza. O trabalho é a condição universal da existência humana, a atividade pela qual os seres humanos produzem seus meios de subsistência e, ao fazê-lo, reproduzem a si mesmos e à sociedade. É a “forma celular” do modo de produção capitalista, analisada em <em>O Capital</em> como unidade do processo de trabalho e do processo de valorização.</div>
+<div class="label lukacs">O que Lukács “ontologiza”</div>
+<div class="block">
+<p><span class="kw">Protoforma do ser social.</span> O trabalho não é apenas uma categoria econômica: é o <em>fundamento ontológico</em> do ser social. É a forma original (proto-forma) de toda posição teleológica.</p>
+<p><span class="kw">Teleologia sem idealismo.</span> Lukács mostra que o trabalho é a única esfera em que uma análise materialista pode identificar uma <em>posição teleológica</em> real: o trabalhador antecipa o resultado na consciência antes de agir. Não é o Espírito hegeliano, mas uma posição concreta, material e consciente, dentro de leis causais.</p>
+<p><span class="kw">Salto genético.</span> O trabalho é o <em>salto ontológico</em>, a passagem qualitativa do orgânico ao social. Ao transformar a natureza, o ser humano transforma a si mesmo; o ser social emerge da natureza e permanece enraizado nela, mas não se reduz a ela.</p>
+<p><span class="kw">Modelo de toda práxis.</span> Toda atividade social superior (linguagem, direito, arte, política) é modelada pela estrutura do trabalho: uma posição consciente de fins dentro do tecido causal da realidade.</p>
+</div>
+</div>
+</details>
+
+<details class="card">
+<summary><span class="name">Ser genérico (Gattungswesen)</span><span class="tag">Marx</span></summary>
+<div class="content">
+<div class="label marx">Em Marx</div>
+<div class="def">Nos <em>Manuscritos Econômico-Filosóficos</em> (1844): os seres humanos são “seres genéricos” (<em>Gattungswesen</em>) porque podem se relacionar com seu próprio gênero, com a natureza e uns com os outros de modo consciente e universal. Sob o capitalismo, esse ser genérico é alienado: o trabalho é estranhado e os seres humanos relacionam-se como meios. O humanismo do jovem Marx gira em torno da possível reapropriação do ser genérico.</div>
+<div class="label lukacs">O que Lukács “ontologiza”</div>
+<div class="block">
+<p><span class="kw">Generidade como categoria ontológica.</span> Lukács retira o termo de seu enquadramento puramente antropológico ou ético e o torna um traço estrutural do ser social. Ele distingue:</p>
+<p><span class="kw">em-si:</span> a unidade silenciosa e irrefletida entre indivíduo e gênero nas formações sociais primitivas (tribo, clã). O indivíduo ainda não se vive como separado do coletivo.</p>
+<p><span class="kw">para-si:</span> a relação consciente e reflexiva com o gênero, ainda fragmentada e mediada por classe, nação etc. A consciência genérica verdadeiramente “para-si” (a humanidade como sujeito unificado) é uma <em>tendência</em> histórica, não um fato consumado.</p>
+<p><span class="kw">Tensão ontológica.</span> A contradição entre indivíduo e gênero não é falha moral, mas uma tensão histórico-ontológica real que impulsiona o desenvolvimento social. Lukács ontologiza a alienação como a separação dos indivíduos de sua generidade pela divisão de classes e pelo trabalho estranhado.</p>
+</div>
+</div>
+</details>
+
+<details class="card">
+<summary><span class="name">Alienação / Estranhamento</span><span class="tag">Marx</span></summary>
+<div class="content">
+<div class="label marx">Em Marx</div>
+<div class="def">Nos Manuscritos de 1844, a alienação (<em>Entfremdung</em>) é o estranhamento do trabalhador em relação ao produto do trabalho, ao processo de trabalho, ao ser genérico e aos demais seres humanos. Em <em>O Capital</em>, reaparece de forma mais concreta e econômica: fetichismo da mercadoria, reificação das relações sociais e separação dos produtores das condições de produção.</div>
+<div class="label lukacs">O que Lukács “ontologiza”</div>
+<div class="block">
+<p><span class="kw">Alienação como problema ontológico.</span> Lukács trata a alienação não só como fenômeno moral ou econômico, mas como um <em>modo de ser</em>: uma possibilidade estrutural (e realidade histórica) do ser social. Sua <em>Ontologia</em> dedica a ela o capítulo mais longo.</p>
+<p><span class="kw">Três dimensões.</span> (1) Traços ontológicos gerais da alienação; (2) seu aspecto ideológico (a religião como forma clássica); (3) sua base objetiva e suas formas modernas concretas.</p>
+<p><span class="kw">Enraizada no trabalho.</span> A alienação nasce da mesma estrutura teleológica que torna o trabalho possível. Como o trabalho envolve pôr fins e objetivar-se, os produtos e instituições criados podem tornar-se poderes independentes que dominam o produtor. A alienação não é acidente, mas uma <em>possibilidade histórico-ontológica</em> inerente à objetivação.</p>
+<p><span class="kw">Superação como processo ontológico.</span> Superar a alienação não é conversão moral, mas um processo histórico que transforma as estruturas básicas do ser social (por exemplo, abolir a divisão de classes, reapropriar-se da generidade).</p>
+</div>
+</div>
+</details>
+
+<details class="card">
+<summary><span class="name">Ideologia</span><span class="tag">Marx</span></summary>
+<div class="content">
+<div class="label marx">Em Marx</div>
+<div class="def">Em <em>A Ideologia Alemã</em>, ideologia é o sistema de ideias e representações da classe dominante, apresentado como universal. Associa-se frequentemente à “falsa consciência” e à ilusão idealista de que as ideias governam o mundo. Mais tarde, em <em>O Capital</em>, aparece de modo mais sutil nas formas do fetichismo e nas ilusões necessárias geradas pela superfície da produção capitalista.</div>
+<div class="label lukacs">O que Lukács “ontologiza”</div>
+<div class="block">
+<p><span class="kw">Ideologia como força social real.</span> Lukács rejeita a redução da ideologia a mera “falsa consciência”. Na <em>Ontologia</em>, ela se torna um <em>momento necessário da reprodução social</em>: um complexo real e efetivo do ser social, não um mero epifenômeno da economia.</p>
+<p><span class="kw">Momento ideal.</span> Toda prática social contém um momento ideal (consciência, planejamento, representação). A ideologia é a organização sistemática desses momentos ideais no nível da sociedade.</p>
+<p><span class="kw">Estatuto ontológico.</span> As ideologias não são “irreais”; têm um modo de ser específico: são fatos sociais objetivos com efeitos reais. Mediam a reprodução de complexos sociais (direito, política, educação) e podem tornar-se forças materiais.</p>
+<p><span class="kw">Crítica ao economicismo.</span> Ao ontologizar a ideologia, Lukács combate o modelo mecânico base/superestrutura: a ideologia não é reflexo passivo, mas parte ativa e constitutiva da totalidade social.</p>
+</div>
+</div>
+</details>
+
+<details class="card">
+<summary><span class="name">Reprodução</span><span class="tag">Marx</span></summary>
+<div class="content">
+<div class="label marx">Em Marx</div>
+<div class="def">Em <em>O Capital</em>, reprodução é o processo pelo qual as condições de produção são continuamente recriadas. A reprodução simples mantém o sistema na mesma escala; a reprodução ampliada (acumulação) o expande. Marx mostra que a reprodução capitalista reproduz não só mercadorias, mas a própria relação-capital, isto é, a separação dos trabalhadores dos meios de produção.</div>
+<div class="label lukacs">O que Lukács “ontologiza”</div>
+<div class="block">
+<p><span class="kw">Reprodução como núcleo ontológico do ser social.</span> Para Lukács, a reprodução não é só um mecanismo econômico, mas o <em>processo fundamental</em> pelo qual o ser social se mantém e se expande. A sociedade é um <em>complexo de complexos</em> que precisa reproduzir continuamente suas próprias condições.</p>
+<p><span class="kw">Do trabalho à totalidade.</span> A ontologia parte do modelo simples do trabalho (posição teleológica) e chega à reprodução de toda a totalidade social, incluindo linguagem, direito, ideologia e instituições.</p>
+<p><span class="kw">Processualidade histórica.</span> A reprodução é intrinsecamente histórica e processual: as formas sociais são reproduzidas pela atividade humana, mas nunca de modo idêntico. Isso abre espaço para mudança, crise e transformação.</p>
+<p><span class="kw">Prioridade ontológica.</span> Nem todos os complexos têm o mesmo peso: a reprodução da vida material (a economia) tem prioridade ontológica, mas é sempre mediada pelos demais complexos. Evita-se assim tanto o economicismo quanto o idealismo.</p>
+</div>
+</div>
+</details>
+
+<details class="card">
+<summary><span class="name">Totalidade</span><span class="tag">Marx</span></summary>
+<div class="content">
+<div class="label marx">Em Marx</div>
+<div class="def">O método de Marx em <em>O Capital</em> trata a sociedade capitalista como totalidade: um todo estruturado e dinâmico em que cada momento (produção, circulação, distribuição, consumo) se relaciona internamente com os demais. Não é uma soma de partes, mas um sistema de mediações. O método dialético busca apreender o todo em seu desenvolvimento histórico concreto.</div>
+<div class="label lukacs">O que Lukács “ontologiza”</div>
+<div class="block">
+<p><span class="kw">Totalidade como traço ontológico.</span> Lukács não trata a totalidade apenas como princípio metodológico (como em <em>História e Consciência de Classe</em>), mas como característica ontológica real do ser social. A sociedade <em>é</em> uma totalidade, um complexo de complexos, quer a apreendamos ou não.</p>
+<p><span class="kw">Complexo de complexos.</span> A estrutura ontológica da sociedade é hierárquica e relacional: cada complexo (economia, direito, linguagem) tem autonomia relativa e leis específicas, mas todos se relacionam internamente no processo total de reprodução social.</p>
+<p><span class="kw">Contra o reducionismo e o atomismo.</span> A totalidade ontológica significa que nenhum fenômeno social pode ser entendido isoladamente. Ao mesmo tempo, a totalidade não é um todo estático, mas um processo histórico: está sempre <em>se tornando</em>.</p>
+<p><span class="kw">O método segue o ser.</span> O método dialético não é imposto à realidade; é o reflexo conceitual da estrutura ontológica real da totalidade social.</p>
+</div>
+</div>
+</details>
+
+<details class="card">
+<summary><span class="name">Historicidade</span><span class="tag">Marx</span></summary>
+<div class="content">
+<div class="label marx">Em Marx</div>
+<div class="def">Para Marx, todas as formas sociais são historicamente transitórias. O capitalismo não é natural nem eterno: é um modo de produção histórico específico, surgido de formas anteriores e destinado a ser superado. O método dialético apreende cada forma em sua gênese histórica e em sua transformação inevitável. A história é o terreno da práxis humana, ainda que nem sempre sob condições escolhidas por nós.</div>
+<div class="label lukacs">O que Lukács “ontologiza”</div>
+<div class="block">
+<p><span class="kw">Historicidade como traço de todo ser.</span> Lukács estende a historicidade para além do social: mesmo o ser inorgânico e o orgânico têm história (cósmica, biológica). Mas o ser social é histórico de modo distinto: é <em>feito</em> pela práxis humana e, por isso, é aberto, processual e não teleológico (sem fim predeterminado).</p>
+<p><span class="kw">Processualidade.</span> O ser não é substância estática, mas processo. As formas sociais são reproduzidas pela atividade e, portanto, sempre podem ser transformadas. Este é o fundamento ontológico da possibilidade de emancipação.</p>
+<p><span class="kw">Contra as essências eternas.</span> A ontologia de Lukács é antimetafísica no sentido tradicional: não há essências eternas e a-históricas. Até a “essência” do ser social é histórica.</p>
+<p><span class="kw">Diferença ontológica entre níveis.</span> O ser inorgânico, o orgânico e o social têm cada um sua historicidade e suas leis de movimento específicas; o social não se reduz ao biológico nem ao físico.</p>
+</div>
+</div>
+</details>
+
+</div>
+
+<div class="footnote">
+<p>Glossário elaborado para fins de estudo. Baseado em <em>O Capital</em>, nos <em>Manuscritos Econômico-Filosóficos</em> e em <em>A Ideologia Alemã</em>, de Marx, e na <em>Ontologia do Ser Social</em> de Lukács (incluindo os <em>Prolegômenos</em>).</p>
+<p>“Ontologização” aqui significa a reconstrução sistemática da ontologia implícita do ser social na obra de Marx.</p>
+</div>
+</div>
+</div>
+<div id="view-map" hidden>
+<div class="container">
+<header>
+<h1>Mapa da <span class="accent">Ontologia</span></h1>
+<div class="subtitle">Toque num segmento para aproximar · toque no centro para voltar</div>
+</header>
+<div class="wrap">
+<div id="chart"></div>
+<div class="panel" id="panel"></div>
+<p class="note">Mapa simplificado e organizado para estudo, não um índice fiel da obra. Os termos seguem o glossário.</p>
+</div>
+</div>
+</div>
+<nav class="tabs"><button id="tab-g" class="on">📖 Glossário</button><button id="tab-m">🧭 Mapa</button></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const L=(n,t,d)=>({n,t,d}),N=(n,t,d,c)=>({n,t,d,c});
+const data=N("Ser Social","Ontologia do Ser Social","Obra tardia de Lukács que busca reconstruir, a partir de Marx, a ontologia implícita do ser social: um ser histórico, processual e com gênese própria no trabalho.",[
+N("Esferas","As três esferas do ser","Lukács distingue três esferas, cada uma com legalidade própria e ligadas por saltos qualitativos. Nenhuma se reduz à outra.",[
+L("Inorgânico","Ser inorgânico","Base de tudo: a natureza física e química, com sua historicidade cósmica."),
+L("Orgânico","Ser orgânico","A vida biológica, que emerge do inorgânico e tem suas próprias leis de reprodução."),
+L("Social","Ser social","Emerge do orgânico pelo salto do trabalho. Enraizado na natureza, mas não redutível a ela.")]),
+N("Livro 1","Livro 1 · Fundamentos","Ponto de partida: por que a ontologia de Marx ficou implícita e o que é preciso desenterrar.",[
+N("Hegel","Hegel: falsa e verdadeira ontologia","Hegel transforma a lógica em ontologia, mas também traz intuições ontológicas valiosas.",[
+L("Logicizante","Ontologia logicizante","As categorias do pensamento passam a ser as do ser. O concreto e histórico se dissolve num esquema lógico-abstrato, manifestação do Espírito."),
+L("Verdadeira","A ontologia verdadeira em Hegel","Mesmo dentro do sistema há intuições ontológicas reais (sobre o trabalho e a historicidade), que Lukács busca resgatar.")]),
+N("Marx","Marx: ontologia implícita","Marx virou Hegel de cabeça para baixo, mas fez crítica da economia política, não exposição das categorias do ser social.",[
+L("Implícita","Ontologia implícita","Marx “viu” a ontologia ao analisar trabalho, alienação e reprodução, mas a moldura hegeliana a deixou encoberta."),
+L("Princípios","Princípios ontológicos de Marx","A tarefa de Lukács: separar o “vivo” (o ser social concreto) do “morto” (a camisa de força logicizante).")])]),
+N("Livro 2","Livro 2 · Os complexos","Os complexos centrais do ser social, partindo do trabalho como modelo e chegando à totalidade.",[
+N("Trabalho","Trabalho","Protoforma do ser social e fundamento ontológico de toda práxis.",[
+L("Teleologia","Posição teleológica","O trabalhador antecipa o resultado na consciência antes de agir. Teleologia material e consciente, sem Espírito hegeliano."),
+L("Causalidade","Causalidade posta","Os fins se realizam transformando cadeias causais da natureza, sem violar suas leis."),
+L("Salto","Salto ontológico","Passagem qualitativa do orgânico ao social: ao transformar a natureza, o ser humano transforma a si mesmo.")]),
+N("Reprodução","Reprodução","Processo fundamental pelo qual o ser social mantém e expande suas próprias condições.",[
+L("Complexos","Complexo de complexos","A sociedade é uma totalidade de complexos (economia, direito, linguagem) com autonomia relativa e todos internamente relacionados."),
+L("Prioridade","Prioridade ontológica","A reprodução da vida material tem prioridade, mas sempre mediada pelos demais complexos. Evita economicismo e idealismo."),
+L("Processo","Processualidade histórica","As formas sociais são reproduzidas, nunca de modo idêntico. Daí a abertura para crise e transformação.")]),
+N("Ideologia","Momento ideal e ideologia","Ideologia não é mera falsa consciência, mas momento real e necessário da reprodução social.",[
+L("Mom. ideal","Momento ideal","Toda prática social contém consciência, planejamento e representação. A ideologia os organiza no nível da sociedade."),
+L("Força real","Efetividade social","Ideologias são fatos sociais objetivos com efeitos reais, não epifenômenos da economia.")]),
+N("Estranham.","Alienação / Estranhamento","Não só fenômeno moral ou econômico, mas modo de ser: possibilidade histórico-ontológica do ser social.",[
+L("Objetivação","Objetivação","Ao pôr fins e objetivar-se, o ser humano cria produtos e instituições que podem virar poderes independentes e dominá-lo."),
+L("Generidade","Generidade: em-si e para-si","Do coletivo indiferenciado (em-si) à consciência genérica reflexiva (para-si), ainda uma tendência histórica."),
+L("Superação","Superação","Não é conversão moral, mas processo histórico que transforma as estruturas do ser social.")])])]);
+
+const W=640,R=W/6,PI=Math.PI;
+const root=d3.hierarchy(data,d=>d.c).sum(d=>d.c?0:1);
+d3.partition().size([2*PI,root.height+1])(root);
+root.each(d=>d.current=d);
+const hues=[205,355,32];
+const color=d=>{const b=d.ancestors().find(a=>a.depth===1);return `hsl(${hues[root.children.indexOf(b)]},55%,${40+d.depth*7}%)`};
+const arc=d3.arc().startAngle(d=>d.x0).endAngle(d=>d.x1).padAngle(d=>Math.min((d.x1-d.x0)/2,.006)).padRadius(R*1.5).innerRadius(d=>d.y0*R).outerRadius(d=>Math.max(d.y0*R,d.y1*R-1));
+const vis=d=>d.y1<=3&&d.y0>=1&&d.x1>d.x0;
+const lvis=d=>d.y1<=3&&d.y0>=1&&(d.y1-d.y0)*(d.x1-d.x0)>.03;
+const lt=d=>{const x=(d.x0+d.x1)/2*180/PI,y=(d.y0+d.y1)/2*R;return `rotate(${x-90}) translate(${y},0) rotate(${x<180?0:180})`};
+
+const svg=d3.select("#chart").append("svg").attr("viewBox",[-W/2,-W/2,W,W]);
+const g=svg.append("g");
+const nodes=root.descendants().slice(1);
+const path=g.selectAll("path").data(nodes).join("path")
+ .attr("fill",color).attr("fill-opacity",d=>vis(d.current)?(d.children?.85:.65):0)
+ .attr("pointer-events",d=>vis(d.current)?"auto":"none").attr("d",d=>arc(d.current))
+ .style("cursor","pointer").on("click",clicked);
+const label=g.append("g").attr("pointer-events","none").attr("text-anchor","middle").selectAll("text").data(nodes).join("text")
+ .attr("dy","0.35em").attr("fill-opacity",d=>+lvis(d.current)).attr("transform",d=>lt(d.current)).text(d=>d.data.n);
+const center=g.append("circle").datum(root).attr("r",R).attr("fill","none").attr("pointer-events","all").style("cursor","pointer").on("click",clicked);
+const ct=svg.append("text").attr("class","center").attr("text-anchor","middle").attr("pointer-events","none").attr("dy","-0.1em");
+const cb=svg.append("text").attr("class","back").attr("text-anchor","middle").attr("pointer-events","none").attr("dy","1.5em");
+
+function panel(p){
+ const el=document.getElementById("panel");
+ el.innerHTML="";
+ const c=document.createElement("div");c.className="crumb";c.textContent=p.ancestors().reverse().map(a=>a.data.n).join(" › ");
+ const h=document.createElement("h2");h.textContent=p.data.t;
+ const t=document.createElement("p");t.textContent=p.data.d;
+ el.append(c,h,t);
+ if(p.children){const k=document.createElement("div");k.className="kids";
+  p.children.forEach(ch=>{const b=document.createElement("button");b.textContent=ch.data.n;b.onclick=()=>clicked(null,ch);k.append(b)});el.append(k)}
+}
+function setCenter(f){ct.text(f.data.n);cb.text(f.parent?"↩ voltar":"")}
+function clicked(e,p){
+ panel(p);
+ if(!p.children&&p!==root){return}
+ const f=p;
+ center.datum(f.parent||root);
+ setCenter(f);
+ root.each(d=>d.target={x0:Math.max(0,Math.min(1,(d.x0-f.x0)/(f.x1-f.x0)))*2*PI,x1:Math.max(0,Math.min(1,(d.x1-f.x0)/(f.x1-f.x0)))*2*PI,y0:Math.max(0,d.y0-f.depth),y1:Math.max(0,d.y1-f.depth)});
+ const t=svg.transition().duration(650);
+ path.transition(t).tween("data",d=>{const i=d3.interpolate(d.current,d.target);return s=>d.current=i(s)})
+  .filter(function(d){return +this.getAttribute("fill-opacity")||vis(d.target)})
+  .attr("fill-opacity",d=>vis(d.target)?(d.children?.85:.65):0)
+  .attr("pointer-events",d=>vis(d.target)?"auto":"none")
+  .attrTween("d",d=>()=>arc(d.current));
+ label.filter(function(d){return +this.getAttribute("fill-opacity")||lvis(d.target)}).transition(t)
+  .attr("fill-opacity",d=>+lvis(d.target)).attrTween("transform",d=>()=>lt(d.current));
+}
+setCenter(root);panel(root);
+
+
+</script>
+<script>
+(function(){
+var h=document.documentElement,m=document.querySelector('meta[name="theme-color"]'),b=document.getElementById('tt'),i=document.getElementById('ti'),l=document.getElementById('tl');
+function saved(){try{var s=localStorage.getItem('theme');return s==='dark'||s==='light'?s:null}catch(e){return null}}
+function apply(t){var d=t==='dark';h.classList.toggle('dark',d);i.textContent=d?'☀️':'🌙';l.textContent=d?'Claro':'Escuro';if(m)m.setAttribute('content',d?'#0d0d0d':'#ffffff');try{localStorage.setItem('theme',t)}catch(e){}}
+apply(saved()||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+b.addEventListener('click',function(){apply(h.classList.contains('dark')?'light':'dark')});
+var vg=document.getElementById('view-glossary'),vm=document.getElementById('view-map'),tg=document.getElementById('tab-g'),tm=document.getElementById('tab-m');
+function show(){var map=location.hash==='#mapa';vg.hidden=map;vm.hidden=!map;tg.classList.toggle('on',!map);tm.classList.toggle('on',map);window.scrollTo(0,0)}
+tg.onclick=function(){location.hash='glossario'};tm.onclick=function(){location.hash='mapa'};
+addEventListener('hashchange',show);show();
+})();
+</script>
+</body>
+</html>
